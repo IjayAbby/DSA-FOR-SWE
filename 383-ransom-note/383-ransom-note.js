@@ -3,13 +3,23 @@
  * @param {string} magazine
  * @return {boolean}
  */
-var canConstruct = function(ransomNote, magazine) {
-    if(ransomNote.length > magazine.length) return false;
+function canConstruct(ransomNote, magazine) {
+    let magazineLetters = {};
+    for (let i = 0; i < magazine.length; i++) {
+        let letter = magazine[i];
+        if (magazineLetters[letter]) {
+            magazineLetters[letter]++;
+        } else {
+            magazineLetters[letter] = 1;
+        }
+    }
     for (let i = 0; i < ransomNote.length; i++) {
-        let char = ransomNote[i];
-        if(!magazine.includes(char)) return false;
-        magazine = magazine.replace(char, '');
+        let letter = ransomNote[i];
+        if (magazineLetters[letter]) {
+            magazineLetters[letter]--;
+        } else {
+            return false;
+        }
     }
     return true;
 };
-    
