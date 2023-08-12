@@ -18,10 +18,10 @@ var lowestCommonAncestor = function(root, p, q) {
     while (currentNode !== null) {
            if(p.val < currentNode.val && q.val < currentNode.val) {
             currentNode = currentNode.left;
-   }
-   else if(p.val > currentNode.val && q.val > currentNode.val) {
-        currentNode = currentNode.right;
-   }
-    else return currentNode;
+            }
+           else if(p.val > currentNode.val && q.val > currentNode.val) {
+            currentNode = currentNode.right;
+            }
+                else return currentNode;
     } 
 }
