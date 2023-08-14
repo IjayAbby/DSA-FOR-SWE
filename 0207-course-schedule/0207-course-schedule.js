@@ -27,7 +27,7 @@ function canFinish(numCourses, prerequisites) {
                 return false;
             }
         }
-        visited[i] = 1; //makr as finished
+        visited[i] = 1; //mark as finished
         return true;
     }
     for (let i = 0; i < numCourses; i++) {
