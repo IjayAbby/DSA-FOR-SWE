@@ -1,1 +1,3 @@
+The **time complexity** of the depth-first search (**DFS**) algorithm used in the canFinish function is **O(N + E)**, where **N** is the number of courses (nodes in the graph) and **E** is the number of prerequisites (edges in the graph). This is because the algorithm needs to visit all N nodes and traverse all E edges in the worst case.
 ​
+The **space complexity** of this algorithm is **O(N + E)**, where N is the number of courses and E is the number of prerequisites. This is because the algorithm needs to store the graph, which takes O(E) space, and the visited array, which takes O(N) space. Additionally, the recursive call stack used by the DFS traversal can take up to O(N) space in the worst case.
