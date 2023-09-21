@@ -4,19 +4,22 @@
  * @return {number}
  */
 var minOperations = function(nums, x) {
-    const sum = nums.reduce((acc, cur) => acc + cur, 0);
-    const target = sum - x;
-    
-    if(target < 0) return -1;
-    if(!target) return nums.length;
-    
-    let start = 0, runningSum = 0, maxLen = -Infinity;
-    
+    let target = nums.reduce((a,b) => a + b) - x;
+    let left = 0;
+    let sum = 0;
+    let max = 0;
+    if (target === 0) return nums.length;
+        
     for(let i = 0; i < nums.length; i++) {
-        runningSum += nums[i];
-        while(runningSum > target) runningSum -= nums[start++];
-        if(runningSum === target) maxLen = Math.max(maxLen, i-start+1);
+        sum += nums[i];
+        while(sum > target) {
+            sum -= nums[left];
+            left++;
+        }
+        if(sum === target) {
+            max = Math.max(max, i - left + 1);
+        }
     }
-    return maxLen === -Infinity ? -1 : nums.length-maxLen;
+    return max === 0 ? -1 : nums.length - max;
 };
 
