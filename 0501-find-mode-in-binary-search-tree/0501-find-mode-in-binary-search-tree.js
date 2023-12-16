@@ -18,7 +18,7 @@ function findMode(root) {
     for (let prop in hash) {
         hash[prop] === max && result.push(prop);
     }
-    return result;
+    
     
     function traverse (node) {
         if (hash[node.val]) {
@@ -30,4 +30,5 @@ function findMode(root) {
         node.left && traverse(node.left);
         node.right && traverse(node.right);
     };
+    return result;
 };
